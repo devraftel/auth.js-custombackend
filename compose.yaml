@@ -1,0 +1,36 @@
+name: authjs-fastapi
+services:
+  fastapi-auth:
+    image: fastapi-auth
+    restart: always
+    build:
+      context: ./fastapi-auth
+      dockerfile: Dockerfile.dev
+    env_file: "./fastapi-auth/.env"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi-auth:/code
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:latest
+    restart: always
+    container_name: PostgresCont
+    environment:
+      - POSTGRES_USER=mjunaidca
+      - POSTGRES_PASSWORD=temp_pass
+      - POSTGRES_DB=db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+
+volumes:
+  postgres_db:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
