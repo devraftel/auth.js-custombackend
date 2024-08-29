@@ -38,7 +38,3 @@ yarn-error.log*
 
 node_modules
 .env
-
-.mypy_cache/
-/pyenv/
-py_cache/
