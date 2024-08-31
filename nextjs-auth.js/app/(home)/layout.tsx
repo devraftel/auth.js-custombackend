@@ -1,12 +1,6 @@
 import React from "react";
 import { auth } from "@/auth";
-
-import { Session } from "@/lib/types";
-import { Logo } from "@/components/Logo";
-import { SidebarDesktop } from "@/components/sidebar-desktop";
-import { SidebarList } from "@/components/sidebar-list";
-import { SidebarMobile } from "@/components/sidebar-mobile";
-
+import { Header } from "@/components/header";
 
 interface HomeLayoutProps {
   children: React.ReactNode;
@@ -19,21 +13,16 @@ const HomeLayout = async ({ children }: HomeLayoutProps) => {
   const isAdmin = session?.user?.isSuperuser || false;
 
   return (
-    <>
-      <div className="relative flex h-screen flex-col overflow-hidden lg:flex-row">
-        <div className="flex h-16 items-center justify-between bg-white p-4 dark:bg-neutral-950 lg:hidden">
-          <Logo />
-          <SidebarMobile>
-            <SidebarList
-              isAdmin={isAdmin}
-              session={session as Session}
-            />
-          </SidebarMobile>
-        </div>
-        <SidebarDesktop />
-        {children}
+    <div className="h-screen flex w-full max-h-full flex-col min-h-full">
+      <div className="">
+
+      <Header />
       </div>
-    </>
+<div className="h-5/6">
+{children}
+
+</div>
+    </div>
   );
 };
 

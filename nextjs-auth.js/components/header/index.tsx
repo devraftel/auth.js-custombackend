@@ -25,7 +25,7 @@ async function UserOrLogin() {
           <SidebarToggleClient />
         </>
       ) : (
-        <Link href="/" rel="nofollow" className="mr-2">
+        <Link href="https://github.com/devraftel/auth.js-custombackend" rel="nofollow" className="mr-2">
           <GitHubLogoIcon width={"20"} height={"20"} />
         </Link>
       )}
@@ -48,7 +48,7 @@ export async function Header() {
 
   return (
     <>
-      <div className="flex h-16 items-center justify-between bg-white p-4 dark:bg-neutral-950 lg:hidden">
+      <div className="flex h-full items-center justify-between bg-white p-4 dark:bg-neutral-950 lg:hidden">
         <Logo />
         <SidebarMobile>
           <SidebarList

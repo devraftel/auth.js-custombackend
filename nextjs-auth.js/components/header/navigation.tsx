@@ -46,7 +46,7 @@ export const Navigation = ({ isSignedIn }: NavigationProps) => {
         {/* Add Github Icon and Link to Repo */}
         <li>
           <a
-            href="https://github.com/devraftel"
+            href="https://github.com/devraftel/auth.js-custombackend"
             className={cn(
               buttonVariants({
                 variant: "link",
